@@ -1,0 +1,27 @@
+{
+    "name": "GbknReader",
+    "description": "Library to read/parse GBKN data",
+    "version": "0.0.1",
+    "author": "Steven Looman <steven.looman@gmail.com>",
+    "keywords": [ "gbkn", "geographical", "gis" ],
+    "licenses" : [
+        {
+            "type": "2-clause BSD",
+            "url": "https://raw.github.com/StevenLooman/mco/master/LICENSE"
+        }
+    ],
+
+    "dependencies": {
+    },
+    "devDependencies": {
+    },
+    "directories": {
+        "lib": "./lib"
+    },
+    "main": "index.js",
+    "engines": { "node": ">= 0.6.0" },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/StevenLooman/gbknreader.git"
+    }
+}
