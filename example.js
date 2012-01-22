@@ -3,7 +3,7 @@ var GbknReader = require('./lib');
 function main() {
     console.log('start');
 
-    var reader = new GbknReader('test_data/dummy.nen');
+    var reader = new GbknReader('test_data/WEESP_N__7001.NEN');
     reader.on('record', onRecord);
     reader.on('end', onEnd);
     reader.start();
