@@ -1,4 +1,4 @@
-var GbknReader = require('./lib');
+var GbknReader = require('./');
 
 function main() {
     console.log('start');
@@ -13,7 +13,6 @@ function main() {
 
 var recordCount = 0;
 function onRecord(record) {
-    console.log('record', record);
     recordCount += 1;
 }
 
