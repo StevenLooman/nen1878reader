@@ -1,7 +1,7 @@
 {
     "name": "GbknReader",
     "description": "Library to read/parse GBKN data",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "author": "Steven Looman <steven.looman@gmail.com>",
     "keywords": [ "gbkn", "geographical", "gis" ],
     "licenses" : [
