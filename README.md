@@ -1,7 +1,7 @@
 GBKN Reader
 ===
 
-GBKN Reader is a NodeJS module to read GBKN data. The GBKN data format can be found at [1]. More information about GBKN can be found at [2]. At the time of writing, an example file can be found at [3].
+GBKN Reader is a NodeJS module to read GBKN data in the NEN1878 data format. The NEN1878 data format can be found at [1]. More information about GBKN can be found at [2]. At the time of writing, an example file can be found at [3].
 
 See example.js on how to use this module.
 
