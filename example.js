@@ -1,7 +1,9 @@
-var GbknReader = require('./');
+var Nen1878Reader = require('./');
 
 function main() {
-    var reader = new GbknReader('test_data/WEESP_N__7001.NEN');
+    //var reader = new Nen1878Reader('test_data/WEESP_N__7001.NEN');
+    //var reader = new Nen1878Reader('test_data/dummy.nen');
+    var reader = new Nen1878Reader('test_data/7500_09.sfn');
 
     reader.on('record', onRecord);
     reader.on('end', onEnd);

@@ -1,9 +1,9 @@
 {
-    "name": "GbknReader",
-    "description": "Library to read/parse GBKN data",
+    "name": "nen1878reader",
+    "description": "Library to read NEN1878 data",
     "version": "0.2.0",
     "author": "Steven Looman <steven.looman@gmail.com>",
-    "keywords": [ "gbkn", "geographical", "gis" ],
+    "keywords": [ "nen1878", "bgt", "gbkn", "geographical", "gis" ],
     "licenses" : [
         {
             "type": "2-clause BSD",
@@ -22,6 +22,6 @@
     "engines": { "node": ">= 0.6.0" },
     "repository": {
         "type": "git",
-        "url": "git://github.com/StevenLooman/gbknreader.git"
+        "url": "git://github.com/StevenLooman/nen1878reader.git"
     }
 }
