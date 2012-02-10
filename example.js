@@ -1,11 +1,12 @@
 var nen1878reader = require('./');
 
 function main() {
-    var reader = new nen1878reader.Nen1878Reader('test_data/WEESP_N__7001.NEN');
+    var parser = new nen1878reader.Nen1878Parser();
+    var reader = new nen1878reader.Nen1878Reader(parser, 'test_data/WEESP_N__7001.NEN');
     //var reader = new nen1878reader.Nen1878Reader('test_data/dummy.nen');
     //var reader = new nen1878reader.Nen1878Reader('test_data/7500_09.sfn');
 
-    reader.on('record', onRecord);
+    parser.on('record', onRecord);
     reader.on('end', onEnd);
     reader.start();
 }
@@ -15,11 +16,11 @@ var lkiCodes = {};
 function onRecord(record) {
     recordCount += 1;
 
-    if (!('lki_code' in record)) {
+    if (!record.lkiCode) {
         return;
     }
 
-    var lkiCode = record.lki_code;
+    var lkiCode = record.lkiCode;
     lkiCodes[lkiCode] = (lkiCodes[lkiCode] || 0) + 1;
 
     if (record.recordType == 3) {

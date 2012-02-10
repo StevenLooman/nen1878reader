@@ -1,7 +1,7 @@
 {
     "name": "nen1878reader",
     "description": "Library to read NEN1878 data",
-    "version": "0.3.2",
+    "version": "0.4.0",
     "author": "Steven Looman <steven.looman@gmail.com>",
     "keywords": [ "nen1878", "bgt", "gbkn", "geographical", "gis" ],
     "licenses" : [
@@ -14,9 +14,11 @@
     "dependencies": {
     },
     "devDependencies": {
+        "expresso": "0.9.2"
     },
     "directories": {
-        "lib": "./lib"
+        "lib": "./lib",
+	"test": "./test"
     },
     "main": "index.js",
     "engines": { "node": ">= 0.6.0" },
