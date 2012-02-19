@@ -30,16 +30,6 @@ module.exports = {
 
     'test parse record 03': function(beforeExit, assert) {
         var parser = new nen1878reader.Nen1878Parser();
-
-        parser.on('record', onRecord);
-
-        function onRecord(record) {
-            assert.equal(3, record.recordType);
-        }
-    },
-
-    'test parse record 03': function(beforeExit, assert) {
-        var parser = new nen1878reader.Nen1878Parser();
         parser.on('record', onRecord);
 
         parser.parseLine('03MB02      G120111   D 20000401BSRC   0                      00');
@@ -54,7 +44,7 @@ module.exports = {
             assert.eql(new Date(2000, 3, 1), record.date);
             assert.equal(1, record.visibility);
             assert.equal(1, record.status);
-            assert.eql({ coordinates: [ { function: 1, x: 0, y: 0}, { function: 2, x: 0, y: 0 } ], precision: 3, deviation: 0 }, record.geometry);
+            assert.eql({ coordinates: [ { function: 1, x: 0, y: 0}, { function: 2, x: 0, y: 0 } ], precision: 3, deviation: 0, reliability: 0 }, record.geometry);
         }
     },
 
