@@ -3,8 +3,6 @@ var nen1878reader = require('./');
 function main() {
     var parser = new nen1878reader.Nen1878Parser();
     var reader = new nen1878reader.Nen1878Reader(parser, 'test_data/WEESP_N__7001.NEN');
-    //var reader = new nen1878reader.Nen1878Reader('test_data/dummy.nen');
-    //var reader = new nen1878reader.Nen1878Reader('test_data/7500_09.sfn');
 
     parser.on('record', onRecord);
     reader.on('end', onEnd);
