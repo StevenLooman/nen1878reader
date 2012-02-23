@@ -21,8 +21,8 @@ function onRecord(record) {
     var lkiCode = record.lkiCode;
     lkiCodes[lkiCode] = (lkiCodes[lkiCode] || 0) + 1;
 
-    if (record.recordType == 3) {
-        var geoJson = nen1878reader.GeoJson.extractLineString(record);
+    if (record.recordType == 3 || record.recordType == 5) {
+        var feature = nen1878reader.GeoJson.toFeature(record);
     }
 }
 
