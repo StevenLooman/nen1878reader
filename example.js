@@ -2,7 +2,7 @@ var nen1878reader = require('./');
 
 function main() {
     var parser = new nen1878reader.Nen1878Parser();
-    var reader = new nen1878reader.Nen1878Reader(parser, 'test_data/WEESP_N__7001.NEN');
+    var reader = new nen1878reader.Nen1878FileReader(parser, 'test_data/WEESP_N__7001.NEN');
 
     parser.on('record', onRecord);
     reader.on('end', onEnd);
