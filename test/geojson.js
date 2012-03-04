@@ -95,7 +95,7 @@ module.exports = {
         var record = {
             recordType: 3,
             lkiCode: 'LKI',
-            geometryType: 12,
+            geometryType: 13,
             date: new Date(2012, 0, 01),
             geometry: {
                 coordinates: [
@@ -110,14 +110,7 @@ module.exports = {
 
         assert.eql(feature, {
             type: 'Feature',
-            geometry: {
-                type: 'LineString',
-                coordinates: [
-                    [ 0, 0 ],
-                    [ 1, 1 ],
-                    [ 2, 0 ]
-                ]
-            },
+            geometry: null,
             properties: {
                 recordType: 3,
                 lkiCode: 'LKI',
