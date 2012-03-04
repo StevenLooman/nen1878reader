@@ -45,12 +45,15 @@ module.exports = {
         var feature = nen1878reader.GeoJson.toFeature(record);
 
         assert.eql(feature, {
-            recordType: 3,
-            lkiCode: 'LKI',
-            date: new Date(2012, 0, 01),
+            type: 'Feature',
             geometry: {
                 type: 'Point',
                 coordinates: [ 0, 0 ]
+            },
+            properties: {
+                recordType: 3,
+                lkiCode: 'LKI',
+                date: new Date(2012, 0, 01)
             }
         });
     },
@@ -72,15 +75,18 @@ module.exports = {
         var feature = nen1878reader.GeoJson.toFeature(record);
 
         assert.eql(feature, {
-            recordType: 3,
-            lkiCode: 'LKI',
-            date: new Date(2012, 0, 01),
+            type: 'Feature',
             geometry: {
                 type: 'LineString',
                 coordinates: [
                     [ 0, 0 ],
                     [ 1, 1 ]
                 ]
+            },
+            properties: {
+                recordType: 3,
+                lkiCode: 'LKI',
+                date: new Date(2012, 0, 01)
             }
         });
     },
@@ -103,9 +109,7 @@ module.exports = {
         var feature = nen1878reader.GeoJson.toFeature(record);
 
         assert.eql(feature, {
-            recordType: 3,
-            lkiCode: 'LKI',
-            date: new Date(2012, 0, 01),
+            type: 'Feature',
             geometry: {
                 type: 'LineString',
                 coordinates: [
@@ -113,6 +117,11 @@ module.exports = {
                     [ 1, 1 ],
                     [ 2, 0 ]
                 ]
+            },
+            properties: {
+                recordType: 3,
+                lkiCode: 'LKI',
+                date: new Date(2012, 0, 01)
             }
         });
     },
@@ -133,14 +142,17 @@ module.exports = {
         var feature = nen1878reader.GeoJson.toFeature(record);
 
         assert.eql(feature, {
-            recordType: 5,
-            lkiCode: 'LKI',
-            textOrSymbol: 1,
+            type: 'Feature',
             geometry: {
                 type: 'Point',
                 coordinates: [
                     0, 0
                 ]
+            },
+            properties: {
+                recordType: 5,
+                lkiCode: 'LKI',
+                textOrSymbol: 1
             }
         });
     },
@@ -162,15 +174,18 @@ module.exports = {
         var feature = nen1878reader.GeoJson.toFeature(record);
 
         assert.eql(feature, {
-            recordType: 5,
-            lkiCode: 'LKI',
-            textOrSymbol: 2,
-            text: 'Text                                    ',
+            type: 'Feature',
             geometry: {
                 type: 'Point',
                 coordinates: [
                     0, 0
                 ]
+            },
+            properties: {
+                recordType: 5,
+                lkiCode: 'LKI',
+                textOrSymbol: 2,
+                text: 'Text                                    ',
             }
         });
     }
