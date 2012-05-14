@@ -11,7 +11,11 @@ module.exports = {
         };
 
         var out = nen1878reader.GeoJson.extractPoint(record);
-        assert.eql(out, { type: 'Point', coordinates: [ 0, 0 ] });
+        assert.eql(out, {
+            type: 'Point',
+            bbox: [ 0, 0, 0, 0 ],
+            coordinates: [ 0, 0 ]
+        });
     },
 
 
@@ -26,7 +30,11 @@ module.exports = {
         };
 
         var out = nen1878reader.GeoJson.extractLineString(record);
-        assert.eql(out, { type: 'LineString', coordinates: [ [ 0, 0 ], [ 1, 1 ] ] });
+        assert.eql(out, {
+            type: 'LineString',
+            bbox: [ 0, 0, 1, 1 ],
+            coordinates: [ [ 0, 0 ], [ 1, 1 ] ]
+        });
     },
 
     'test geojson toFeature 03 - 1': function(beforeExit, assert) {
@@ -48,6 +56,7 @@ module.exports = {
             type: 'Feature',
             geometry: {
                 type: 'Point',
+                bbox: [ 0, 0, 0, 0 ],
                 coordinates: [ 0, 0 ]
             },
             properties: {
@@ -78,6 +87,7 @@ module.exports = {
             type: 'Feature',
             geometry: {
                 type: 'LineString',
+                bbox: [ 0, 0, 1, 1 ],
                 coordinates: [
                     [ 0, 0 ],
                     [ 1, 1 ]
@@ -138,6 +148,7 @@ module.exports = {
             type: 'Feature',
             geometry: {
                 type: 'Point',
+                bbox: [ 0, 0, 0, 0 ],
                 coordinates: [
                     0, 0
                 ]
@@ -170,6 +181,7 @@ module.exports = {
             type: 'Feature',
             geometry: {
                 type: 'Point',
+                bbox: [ 0, 0, 0, 0 ],
                 coordinates: [
                     0, 0
                 ]

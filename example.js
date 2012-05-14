@@ -11,6 +11,10 @@ function main() {
 
 var recordCount = 0;
 var lkiCodes = {};
+var xMin = Infinity;
+var yMin = Infinity;
+var yMax = -Infinity;
+var xMax = -Infinity;
 function onRecord(record) {
     recordCount += 1;
 
@@ -23,12 +27,32 @@ function onRecord(record) {
 
     if (record.recordType == 3 || record.recordType == 5) {
         var feature = nen1878reader.GeoJson.toFeature(record);
+
+        if (!feature.geometry) {
+            return;
+        }
+
+        // determine min, max
+        var coordinates = feature.geometry.coordinates;
+        if (!(coordinates[0] instanceof Array)) {
+            coordinates = [ coordinates ];
+        }
+        for (var index = 0; index < coordinates.length; ++index) {
+            var coordinate = coordinates[index];
+
+            xMin = Math.min(xMin, coordinate[0]);
+            xMax = Math.max(xMax, coordinate[0]);
+            yMin = Math.min(yMin, coordinate[1]);
+            yMax = Math.max(yMax, coordinate[1]);
+        }
     }
 }
 
 function onEnd() {
     console.log(lkiCodes);
     console.log(recordCount);
+
+    console.log([ xMin, yMin, xMax, yMax ]);
 }
 
 main();
