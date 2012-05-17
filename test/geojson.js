@@ -1,42 +1,6 @@
 var nen1878reader = require('../');
 
 module.exports = {
-    'test geojson extractPoint': function(beforeExit, assert) {
-        var record = {
-            geometry: {
-                coordinates: [
-                    { x: 0, y: 0 }
-                ]
-            }
-        };
-
-        var out = nen1878reader.GeoJson.extractPoint(record);
-        assert.eql(out, {
-            type: 'Point',
-            bbox: [ 0, 0, 0, 0 ],
-            coordinates: [ 0, 0 ]
-        });
-    },
-
-
-    'test geojson extractLineString': function(beforeExit, assert) {
-        var record = {
-            geometry: {
-                coordinates: [
-                    { x: 0, y: 0 },
-                    { x: 1, y: 1 }
-                ]
-            }
-        };
-
-        var out = nen1878reader.GeoJson.extractLineString(record);
-        assert.eql(out, {
-            type: 'LineString',
-            bbox: [ 0, 0, 1, 1 ],
-            coordinates: [ [ 0, 0 ], [ 1, 1 ] ]
-        });
-    },
-
     'test geojson toFeature 03 - 1': function(beforeExit, assert) {
         var record = {
             recordType: 3,
@@ -56,14 +20,14 @@ module.exports = {
             type: 'Feature',
             geometry: {
                 type: 'Point',
-                bbox: [ 0, 0, 0, 0 ],
                 coordinates: [ 0, 0 ]
             },
             properties: {
                 recordType: 3,
                 lkiCode: 'LKI',
                 date: new Date(2012, 0, 01)
-            }
+            },
+            bbox: [ 0, 0, 0, 0 ]
         });
     },
 
@@ -87,7 +51,6 @@ module.exports = {
             type: 'Feature',
             geometry: {
                 type: 'LineString',
-                bbox: [ 0, 0, 1, 1 ],
                 coordinates: [
                     [ 0, 0 ],
                     [ 1, 1 ]
@@ -97,7 +60,8 @@ module.exports = {
                 recordType: 3,
                 lkiCode: 'LKI',
                 date: new Date(2012, 0, 01)
-            }
+            },
+            bbox: [ 0, 0, 1, 1 ]
         });
     },
 
@@ -125,7 +89,8 @@ module.exports = {
                 recordType: 3,
                 lkiCode: 'LKI',
                 date: new Date(2012, 0, 01)
-            }
+            },
+            bbox: [ 0, 0, 2, 1 ]
         });
     },
 
@@ -148,7 +113,6 @@ module.exports = {
             type: 'Feature',
             geometry: {
                 type: 'Point',
-                bbox: [ 0, 0, 0, 0 ],
                 coordinates: [
                     0, 0
                 ]
@@ -157,7 +121,8 @@ module.exports = {
                 recordType: 5,
                 lkiCode: 'LKI',
                 textOrSymbol: 1
-            }
+            },
+            bbox: [ 0, 0, 0, 1 ]
         });
     },
 
@@ -181,7 +146,6 @@ module.exports = {
             type: 'Feature',
             geometry: {
                 type: 'Point',
-                bbox: [ 0, 0, 0, 0 ],
                 coordinates: [
                     0, 0
                 ]
@@ -191,7 +155,8 @@ module.exports = {
                 lkiCode: 'LKI',
                 textOrSymbol: 2,
                 text: 'Text                                    ',
-            }
+            },
+            bbox: [ 0, 0, 0, 1 ]
         });
     }
 }
