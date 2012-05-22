@@ -10,7 +10,6 @@
             "url": "https://raw.github.com/StevenLooman/mco/master/LICENSE"
         }
     ],
-
     "dependencies": {
     },
     "devDependencies": {
@@ -22,6 +21,9 @@
     },
     "main": "index.js",
     "engines": { "node": ">= 0.6.0" },
+    "scripts": {
+    	"test": "expresso test/*"
+    },
     "repository": {
         "type": "git",
         "url": "git://github.com/StevenLooman/nen1878reader.git"
