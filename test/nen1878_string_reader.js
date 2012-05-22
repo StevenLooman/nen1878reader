@@ -1,5 +1,4 @@
 var nen1878reader = require('../');
-var eyes = require('eyes');
 
 module.exports = {
     'test read string 01': function(beforeExit, assert) {
