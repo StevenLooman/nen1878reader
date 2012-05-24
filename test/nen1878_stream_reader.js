@@ -1,0 +1,66 @@
+var nen1878reader = require('../');
+var streamBuffers = require("stream-buffers");
+
+module.exports = {
+    'test read string 01': function(beforeExit, assert) {
+        var parser = new nen1878reader.Nen1878Parser();
+        var string = '03MB02      G120111   D 20000401BSRC   0                      00\r\n' +
+                     '04I1        X000000000Y000000000I2        X000000000Y00000000000\r\n' +
+                     '04Q  3  0  0                                                  01\r\n';
+        var stream = new streamBuffers.ReadableStreamBuffer();
+        var reader = new nen1878reader.Nen1878StreamReader(parser, stream);
+
+        parser.on('record', onRecord);
+        reader.on('end', onEnd);
+        reader.start();
+        stream.put(string);
+
+        var onRecordCalled = false;
+        beforeExit(function() {
+            assert.equal(onRecordCalled, true);
+        });
+
+        function onRecord(record) {
+            onRecordCalled = true;
+            assert.equal(3, record.recordType);
+            assert.equal('B02', record.lkiCode);
+            assert.equal(12, record.geometryType);
+            assert.equal('SRC  ', record.source);
+            assert.eql(new Date(2000, 3, 1), record.date);
+            assert.equal(1, record.visibility);
+            assert.equal(1, record.status);
+            assert.eql({ coordinates: [ { function: 1, x: 0, y: 0}, { function: 2, x: 0, y: 0 } ], precision: 3, deviation: 0, reliability: 0 }, record.geometry);
+            stream.destroy();
+        }
+
+        function onEnd() {
+        }
+    },
+
+    'test on end called': function(beforeExit, assert) {
+        var parser = new nen1878reader.Nen1878Parser();
+        var string = '03MB02      G120111   D 20000401BSRC   0                      00\r\n' +
+                     '04I1        X000000000Y000000000I2        X000000000Y00000000000\r\n' +
+                     '04Q  3  0  0                                                  01\r\n';
+        var stream = new streamBuffers.ReadableStreamBuffer();
+        var reader = new nen1878reader.Nen1878StreamReader(parser, stream);
+
+        parser.on('record', onRecord);
+        reader.on('end', onEnd);
+        reader.start();
+        stream.put(string);
+
+        var onEndCalled = false;
+        beforeExit(function() {
+            assert.equal(onEndCalled, true);
+        });
+
+        function onRecord(record) {
+            stream.destroy();
+        }
+
+        function onEnd() {
+            onEndCalled = true;
+        }
+    }
+}
