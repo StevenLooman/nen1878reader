@@ -6,7 +6,7 @@ module.exports = {
             recordType: 3,
             lkiCode: 'LKI',
             geometryType: 1,
-            date: new Date(2012, 0, 01),
+            date: new Date(2012, 0, 1),
             geometry: {
                 coordinates: [
                     { x: 0, y: 0 }
@@ -25,7 +25,7 @@ module.exports = {
             properties: {
                 recordType: 3,
                 lkiCode: 'LKI',
-                date: new Date(2012, 0, 01)
+                date: new Date(2012, 0, 1)
             },
             bbox: [ 0, 0, 0, 0 ]
         });
@@ -36,7 +36,7 @@ module.exports = {
             recordType: 3,
             lkiCode: 'LKI',
             geometryType: 12,
-            date: new Date(2012, 0, 01),
+            date: new Date(2012, 0, 1),
             geometry: {
                 coordinates: [
                     { x: 0, y: 0 },
@@ -59,7 +59,7 @@ module.exports = {
             properties: {
                 recordType: 3,
                 lkiCode: 'LKI',
-                date: new Date(2012, 0, 01)
+                date: new Date(2012, 0, 1)
             },
             bbox: [ 0, 0, 1, 1 ]
         });
@@ -70,7 +70,7 @@ module.exports = {
             recordType: 3,
             lkiCode: 'LKI',
             geometryType: 13,
-            date: new Date(2012, 0, 01),
+            date: new Date(2012, 0, 1),
             geometry: {
                 coordinates: [
                     { x: 0, y: 0 },
@@ -88,7 +88,7 @@ module.exports = {
             properties: {
                 recordType: 3,
                 lkiCode: 'LKI',
-                date: new Date(2012, 0, 01)
+                date: new Date(2012, 0, 1)
             },
             bbox: [ 0, 0, 2, 1 ]
         });
@@ -154,7 +154,7 @@ module.exports = {
                 recordType: 5,
                 lkiCode: 'LKI',
                 textOrSymbol: 2,
-                text: 'Text                                    ',
+                text: 'Text                                    '
             },
             bbox: [ 0, 0, 0, 1 ]
         });

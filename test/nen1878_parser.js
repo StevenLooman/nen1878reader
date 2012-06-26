@@ -108,7 +108,6 @@ module.exports = {
         function onRecord(record) {
             assert.equal(false, true);
         }
-    },
-
+    }
 }
 

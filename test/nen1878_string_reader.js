@@ -21,5 +21,5 @@ module.exports = {
             assert.equal(1, record.status);
             assert.eql({ coordinates: [ { function: 1, x: 0, y: 0}, { function: 2, x: 0, y: 0 } ], precision: 3, deviation: 0, reliability: 0 }, record.geometry);
         }
-    },
+    }
 }
