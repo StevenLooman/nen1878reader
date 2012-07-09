@@ -3,3 +3,4 @@ test_data/*nen
 test_data/*NEN
 test_data/*sfn
 doc/*pdf
+lib-cov/
