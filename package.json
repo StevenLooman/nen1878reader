@@ -1,7 +1,7 @@
 {
     "name": "nen1878reader",
     "description": "Library to read NEN1878 data",
-    "version": "0.7.0",
+    "version": "0.7.1",
     "author": "Steven Looman <steven.looman@gmail.com>",
     "keywords": [ "nen1878", "bgt", "gbkn", "geographical", "gis" ],
     "licenses" : [
@@ -13,7 +13,7 @@
     "dependencies": {
     },
     "devDependencies": {
-        "mocha": "1.1.2",
+        "mocha": "1.2.2",
 	"mocha-lcov-reporter": "0.0.1",
 	"stream-buffers": "0.2.1"
     },
