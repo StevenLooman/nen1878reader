@@ -20,11 +20,11 @@ describe('Nen1878StreamReader', function() {
             assert.equal(3, record.recordType);
             assert.equal('B02', record.lkiCode);
             assert.equal(12, record.geometryType);
-            assert.equal('SRC  ', record.source);
-            assert.deepEqual(new Date(2000, 3, 1), record.date);
-            assert.equal(1, record.visibility);
+            assert.equal('SRC  ', record.bron);
+            assert.deepEqual(new Date(2000, 3, 1), record.datum);
+            assert.equal(1, record.zichtbaarheid);
             assert.equal(1, record.status);
-            assert.deepEqual({ coordinates: [ { function: 1, x: 0, y: 0}, { function: 2, x: 0, y: 0 } ], precision: 3, deviation: 0, reliability: 0 }, record.geometry);
+            assert.deepEqual({ coordinates: [ { functie: 1, x: 0, y: 0}, { functie: 2, x: 0, y: 0 } ], precisieKlasse: 3, idealisatieKlasse: 0, betrouwbaarheid: 0 }, record.geometry);
             stream.destroy();
 
             done();

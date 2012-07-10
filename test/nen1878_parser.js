@@ -11,10 +11,10 @@ describe('Nen1878Parser', function() {
 
             function onRecord(record) {
                 assert.equal(1, record.recordType);
-                assert.equal('RECORD01   ', record.name);
-                assert.deepEqual(new Date(2001, 10, 1), record.date);
-                assert.equal(1, record.currentFile);
-                assert.equal(1, record.totalFiles);
+                assert.equal('RECORD01   ', record.bestandsnaam);
+                assert.deepEqual(new Date(2001, 10, 1), record.datum);
+                assert.equal(1, record.huidigBestand);
+                assert.equal(1, record.totaalBestanden);
                 assert.equal('S01', record.productCode);
             }
         });
@@ -42,11 +42,11 @@ describe('Nen1878Parser', function() {
                 assert.equal(3, record.recordType);
                 assert.equal('B02', record.lkiCode);
                 assert.equal(12, record.geometryType);
-                assert.equal('SRC  ', record.source);
-                assert.deepEqual(new Date(2000, 3, 1), record.date);
-                assert.equal(1, record.visibility);
+                assert.equal('SRC  ', record.bron);
+                assert.deepEqual(new Date(2000, 3, 1), record.datum);
+                assert.equal(1, record.zichtbaarheid);
                 assert.equal(1, record.status);
-                assert.deepEqual({ coordinates: [ { function: 1, x: 0, y: 0}, { function: 2, x: 0, y: 0 } ], precision: 3, deviation: 0, reliability: 0 }, record.geometry);
+                assert.deepEqual({ coordinates: [ { functie: 1, x: 0, y: 0}, { functie: 2, x: 0, y: 0 } ], precisieKlasse: 3, idealisatieKlasse: 0, betrouwbaarheid: 0 }, record.geometry);
             }
         });
 
@@ -59,9 +59,9 @@ describe('Nen1878Parser', function() {
             function onRecord(record) {
                 assert.equal(5, record.recordType);
                 assert.equal(1, record.status);
-                assert.equal(2, record.textOrSymbol);
+                assert.equal(2, record.tekstOfSymbool);
                 assert.equal('S01', record.lkiCode);
-                assert.equal('GV6   ', record.symbolType);
+                assert.equal('GV6   ', record.symboolType);
                 assert.deepEqual({ coordinates: [ { x: 0, y: 0}, { x: 0, y: 0} ] }, record.geometry);
             }
         });
@@ -76,12 +76,12 @@ describe('Nen1878Parser', function() {
 
             function onRecord(record) {
                 assert.equal(7, record.recordType);
-                assert.equal('ID      ', record.id);
-                assert.equal('TEST NEN                           ', record.name);
-                assert.equal('Street                  ', record.street);
-                assert.equal('1    ', record.number);
-                assert.equal('a    ', record.number_addition);
-                assert.equal('CITY                    ', record.city);
+                assert.equal('ID      ', record.identificatieBeheerder);
+                assert.equal('TEST NEN                           ', record.naamBeheerder);
+                assert.equal('Street                  ', record.straatnaam);
+                assert.equal('1    ', record.huisnummer);
+                assert.equal('a    ', record.huisnummerToevoeging);
+                assert.equal('CITY                    ', record.vestigingsplaats);
             }
         });
 
