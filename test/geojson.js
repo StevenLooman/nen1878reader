@@ -86,7 +86,14 @@ describe('GeoJson', function() {
 
             assert.deepEqual(feature, {
                 type: 'Feature',
-                geometry: null,
+                geometry: {
+                    type: 'LineString',
+                    coordinates: [
+                        [ 0, 0 ],
+                        [ 1, 1 ],
+                        [ 2, 0 ]
+                    ]
+                },
                 properties: {
                     recordType: 3,
                     lkiCode: 'LKI',
