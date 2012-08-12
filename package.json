@@ -3,7 +3,7 @@
     "description": "Library to read NEN1878 data",
     "version": "0.8.0",
     "author": "Steven Looman <steven.looman@gmail.com>",
-    "keywords": [ "nen1878", "bgt", "gbkn", "geographical", "gis" ],
+    "keywords": [ "nen1878", "gbkn", "geographical", "gis" ],
     "licenses" : [
         {
             "type": "2-clause BSD",
