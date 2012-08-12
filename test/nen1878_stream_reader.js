@@ -24,7 +24,7 @@ describe('Nen1878StreamReader', function() {
             assert.deepEqual(new Date(2000, 3, 1), record.datum);
             assert.equal(1, record.zichtbaarheid);
             assert.equal(1, record.status);
-            assert.deepEqual({ coordinates: [ { functie: 1, x: 0, y: 0}, { functie: 2, x: 0, y: 0 } ], precisieKlasse: 3, idealisatieKlasse: 0, betrouwbaarheid: 0 }, record.geometry);
+            assert.deepEqual({ coordinates: [ { functie: 1, x: 0, y: 0}, { functie: 2, x: 0, y: 0 } ], precisieKlasse: 3, idealisatieKlasse: 0, betrouwbaarheid: 0 }, record.geometry04);
             stream.destroy();
 
             done();

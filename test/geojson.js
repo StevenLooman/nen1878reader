@@ -9,7 +9,7 @@ describe('GeoJson', function() {
                 lkiCode: 'LKI',
                 geometryType: 1,
                 date: new Date(2012, 0, 1),
-                geometry: {
+                geometry04: {
                     coordinates: [
                         { x: 0, y: 0 }
                     ]
@@ -39,7 +39,7 @@ describe('GeoJson', function() {
                 lkiCode: 'LKI',
                 geometryType: 12,
                 date: new Date(2012, 0, 1),
-                geometry: {
+                geometry04: {
                     coordinates: [
                         { x: 0, y: 0 },
                         { x: 1, y: 1 }
@@ -73,7 +73,7 @@ describe('GeoJson', function() {
                 lkiCode: 'LKI',
                 geometryType: 13,
                 date: new Date(2012, 0, 1),
-                geometry: {
+                geometry04: {
                     coordinates: [
                         { x: 0, y: 0 },
                         { x: 1, y: 1 },
@@ -108,7 +108,7 @@ describe('GeoJson', function() {
                 recordType: 5,
                 lkiCode: 'LKI',
                 textOrSymbol: 1,
-                geometry: {
+                geometry05: {
                     coordinates: [
                         { x: 0, y: 0 },
                         { x: 0, y: 1 }
@@ -141,7 +141,7 @@ describe('GeoJson', function() {
                 lkiCode: 'LKI',
                 textOrSymbol: 2,
                 text: 'Text                                    ',
-                geometry: {
+                geometry05: {
                     coordinates: [
                         { x: 0, y: 0 },
                         { x: 0, y: 1 }

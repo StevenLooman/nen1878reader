@@ -46,7 +46,7 @@ describe('Nen1878Parser', function() {
                 assert.deepEqual(new Date(2000, 3, 1), record.datum);
                 assert.equal(1, record.zichtbaarheid);
                 assert.equal(1, record.status);
-                assert.deepEqual({ coordinates: [ { functie: 1, x: 0, y: 0}, { functie: 2, x: 0, y: 0 } ], precisieKlasse: 3, idealisatieKlasse: 0, betrouwbaarheid: 0 }, record.geometry);
+                assert.deepEqual({ coordinates: [ { functie: 1, x: 0, y: 0}, { functie: 2, x: 0, y: 0 } ], precisieKlasse: 3, idealisatieKlasse: 0, betrouwbaarheid: 0 }, record.geometry04);
             }
         });
 
@@ -62,7 +62,7 @@ describe('Nen1878Parser', function() {
                 assert.equal(2, record.tekstOfSymbool);
                 assert.equal('S01', record.lkiCode);
                 assert.equal('GV6   ', record.symboolType);
-                assert.deepEqual({ coordinates: [ { x: 0, y: 0}, { x: 0, y: 0} ] }, record.geometry);
+                assert.deepEqual({ coordinates: [ { x: 0, y: 0}, { x: 0, y: 0} ] }, record.geometry05);
             }
         });
 
