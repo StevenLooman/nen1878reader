@@ -1,5 +1,5 @@
 *.swp
-doc/*pdf
+doc/
 lib-cov/
 .sonar/
 coverage/
