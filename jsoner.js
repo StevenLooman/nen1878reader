@@ -22,12 +22,6 @@ function onRecord(record) {
             return;
         }
 
-        feature.xMin = feature.bbox[0];
-        feature.yMin = feature.bbox[1];
-        feature.xMax = feature.bbox[2];
-        feature.yMax = feature.bbox[3];
-        delete feature.bbox;
-
         var json = JSON.stringify(feature);
         console.log(json);
     }
