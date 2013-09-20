@@ -14,17 +14,17 @@
     },
     "devDependencies": {
         "mocha": "1.2.2",
-	"mocha-lcov-reporter": "0.0.1",
-	"stream-buffers": "0.2.1"
+        "mocha-lcov-reporter": "0.0.1",
+        "stream-buffers": "0.2.1"
     },
     "directories": {
         "lib": "./lib",
-	"test": "./test"
+        "test": "./test"
     },
     "main": "index.js",
     "engines": { "node": ">= 0.6.0" },
     "scripts": {
-    	"test": "mocha test/*"
+        "test": "mocha test/*"
     },
     "repository": {
         "type": "git",
