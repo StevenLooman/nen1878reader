@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+PROJECT_VERSION=`npm version | grep nen1878reader | awk -F\' '{print $2}'`
+
 rm -rf coverage
 rm -rf lib-cov
 
@@ -15,4 +17,4 @@ rm -rf lib
 mv lib-orig lib
 
 echo Running sonar-runner
-sonar-runner
+sonar-runner -Dsonar.projectVersion=$PROJECT_VERSION
