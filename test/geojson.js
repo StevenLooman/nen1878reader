@@ -108,38 +108,6 @@ describe('GeoJson', function() {
                 recordType: 5,
                 lkiCode: 'LKI',
                 tekstOfSymbool: 1,
-                geometry05: {
-                    coordinates: [
-                        { x: 0, y: 0 },
-                        { x: 0, y: 1 }
-                    ]
-                }
-            };
-
-            var feature = nen1878reader.GeoJson.toFeature(record);
-
-            assert.deepEqual(feature, {
-                type: 'Feature',
-                geometry: {
-                    type: 'Point',
-                    coordinates: [
-                        0, 0
-                    ]
-                },
-                properties: {
-                    recordType: 5,
-                    lkiCode: 'LKI',
-                    tekstOfSymbool: 1
-                },
-                bbox: [ 0, 0, 0, 0 ]
-            });
-        });
-
-        it('should convert a 05/2 record to a GeoJson feature', function() {
-            var record = {
-                recordType: 5,
-                lkiCode: 'LKI',
-                tekstOfSymbool: 2,
                 text: 'Text                                    ',
                 geometry05: {
                     coordinates: [
@@ -162,8 +130,40 @@ describe('GeoJson', function() {
                 properties: {
                     recordType: 5,
                     lkiCode: 'LKI',
-                    tekstOfSymbool: 2,
+                    tekstOfSymbool: 1,
                     text: 'Text                                    '
+                },
+                bbox: [ 0, 0, 0, 0 ]
+            });
+        });
+
+        it('should convert a 05/2 record to a GeoJson feature', function() {
+            var record = {
+                recordType: 5,
+                lkiCode: 'LKI',
+                tekstOfSymbool: 2,
+                geometry05: {
+                    coordinates: [
+                        { x: 0, y: 0 },
+                        { x: 0, y: 1 }
+                    ]
+                }
+            };
+
+            var feature = nen1878reader.GeoJson.toFeature(record);
+
+            assert.deepEqual(feature, {
+                type: 'Feature',
+                geometry: {
+                    type: 'Point',
+                    coordinates: [
+                        0, 0
+                    ]
+                },
+                properties: {
+                    recordType: 5,
+                    lkiCode: 'LKI',
+                    tekstOfSymbool: 2
                 },
                 bbox: [ 0, 0, 0, 0 ]
             });
