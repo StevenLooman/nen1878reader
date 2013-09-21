@@ -5,7 +5,9 @@ var isFirst = true;
 
 
 function main() {
-    console.log('{ "type": "FeatureCollection", "features": [');
+    console.log('{"type": "FeatureCollection",');
+    console.log('"crs": {"type": "name", "properties": {"name": "urn:ogc:def:crs:EPSG:6.9:28992"}},');
+    console.log('"features": [');
 
     var parser = new nen1878reader.Nen1878Parser();
     var reader = new nen1878reader.Nen1878StreamReader(parser, process.stdin);
@@ -33,7 +35,6 @@ function onRecord(record) {
         var json = JSON.stringify(feature);
         console.log(json);
     }
-
 }
 
 function onEnd() {
