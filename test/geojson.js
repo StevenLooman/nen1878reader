@@ -107,7 +107,7 @@ describe('GeoJson', function() {
             var record = {
                 recordType: 5,
                 lkiCode: 'LKI',
-                textOrSymbol: 1,
+                tekstOfSymbool: 1,
                 geometry05: {
                     coordinates: [
                         { x: 0, y: 0 },
@@ -129,9 +129,9 @@ describe('GeoJson', function() {
                 properties: {
                     recordType: 5,
                     lkiCode: 'LKI',
-                    textOrSymbol: 1
+                    tekstOfSymbool: 1
                 },
-                bbox: [ 0, 0, 0, 1 ]
+                bbox: [ 0, 0, 0, 0 ]
             });
         });
 
@@ -139,7 +139,7 @@ describe('GeoJson', function() {
             var record = {
                 recordType: 5,
                 lkiCode: 'LKI',
-                textOrSymbol: 2,
+                tekstOfSymbool: 2,
                 text: 'Text                                    ',
                 geometry05: {
                     coordinates: [
@@ -162,10 +162,10 @@ describe('GeoJson', function() {
                 properties: {
                     recordType: 5,
                     lkiCode: 'LKI',
-                    textOrSymbol: 2,
+                    tekstOfSymbool: 2,
                     text: 'Text                                    '
                 },
-                bbox: [ 0, 0, 0, 1 ]
+                bbox: [ 0, 0, 0, 0 ]
             });
         });
     });
