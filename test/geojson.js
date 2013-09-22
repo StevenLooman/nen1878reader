@@ -131,7 +131,8 @@ describe('GeoJson', function() {
                     recordType: 5,
                     lkiCode: 'LKI',
                     tekstOfSymbool: 1,
-                    text: 'Text                                    '
+                    text: 'Text                                    ',
+                    labelAngle: Math.PI / 2
                 },
                 bbox: [ 0, 0, 0, 0 ]
             });
@@ -145,7 +146,7 @@ describe('GeoJson', function() {
                 geometry05: {
                     coordinates: [
                         { x: 0, y: 0 },
-                        { x: 0, y: 1 }
+                        { x: 0, y: -1 }
                     ]
                 }
             };
@@ -163,7 +164,8 @@ describe('GeoJson', function() {
                 properties: {
                     recordType: 5,
                     lkiCode: 'LKI',
-                    tekstOfSymbool: 2
+                    tekstOfSymbool: 2,
+                    labelAngle: -Math.PI / 2
                 },
                 bbox: [ 0, 0, 0, 0 ]
             });
