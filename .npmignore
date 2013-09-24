@@ -1,4 +1,4 @@
-run_sonar.hs
+run_sonar.sh
 sonar-runner.properties
 coverage
 .sonar
