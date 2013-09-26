@@ -9,7 +9,7 @@ var isFirst = true;
 var baseFilename = process.argv[2] || 'out_';
 var currentFile = 0;
 var currentFd = null;
-var SPLIT_ON_COUNT = 2500000;
+var SPLIT_ON_COUNT = 500000;
 
 
 function openFile(filename) {
@@ -23,12 +23,22 @@ function openFile(filename) {
     return fd;
 }
 
-
 function closeFile(fd) {
     // write footer
     fs.writeSync(fd, ']}');
 
     fs.closeSync(fd);
+}
+
+
+function pad(num, size) {
+    var s = num + "";
+
+    while (s.length < size) {
+        s = "0" + s;
+    }
+
+    return s;
 }
 
 
@@ -49,7 +59,7 @@ function onRecord(record) {
 
     // open new file if needed
     if (!currentFd) {
-        currentFd = openFile(baseFilename + '_' + currentFile + '.geojson');
+        currentFd = openFile(baseFilename + '_' + pad(currentFile, 2) + '.geojson');
         currentFile += 1;
     }
 
