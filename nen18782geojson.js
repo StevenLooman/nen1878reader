@@ -1,14 +1,38 @@
+#!/usr/bin/env node
+
 var nen1878reader = require('./');
+var fs = require('fs');
 
 
+var recordCount = 0;
 var isFirst = true;
+var baseFilename = process.argv[2] || 'out_';
+var currentFile = 0;
+var currentFd = null;
+var SPLIT_ON_COUNT = 2500000;
+
+
+function openFile(filename) {
+    var fd = fs.openSync(filename, 'w');
+
+    // write header
+    fs.writeSync(fd, '{"type": "FeatureCollection",');
+    fs.writeSync(fd, '"crs": {"type": "name", "properties": {"name": "urn:ogc:def:crs:EPSG:6.9:28992"}},');
+    fs.writeSync(fd, '"features": [');
+
+    return fd;
+}
+
+
+function closeFile(fd) {
+    // write footer
+    fs.writeSync(fd, ']}');
+
+    fs.closeSync(fd);
+}
 
 
 function main() {
-    console.log('{"type": "FeatureCollection",');
-    console.log('"crs": {"type": "name", "properties": {"name": "urn:ogc:def:crs:EPSG:6.9:28992"}},');
-    console.log('"features": [');
-
     var parser = new nen1878reader.Nen1878Parser();
     var reader = new nen1878reader.Nen1878StreamReader(parser, process.stdin);
 
@@ -21,6 +45,12 @@ function main() {
 function onRecord(record) {
     if (!record.lkiCode) {
         return;
+    }
+
+    // open new file if needed
+    if (!currentFd) {
+        currentFd = openFile(baseFilename + '_' + currentFile + '.geojson');
+        currentFile += 1;
     }
 
     if (record.recordType == 3 || record.recordType == 5) {
@@ -37,16 +67,25 @@ function onRecord(record) {
         if (isFirst) {
             isFirst = false;
         } else {
-            console.log(',');
+            fs.writeSync(currentFd, ',');
         }
 
         var json = JSON.stringify(feature);
-        console.log(json);
+        fs.writeSync(currentFd, json);
+
+
+        // open new file if needed
+        recordCount += 1;
+        if (recordCount % SPLIT_ON_COUNT === 0) {
+            closeFile(currentFd);
+            isFirst = true;
+            currentFd = null;
+        }
     }
 }
 
 function onEnd() {
-    console.log(']}');
+    closeFile(currentFd);
 }
 
 main();
