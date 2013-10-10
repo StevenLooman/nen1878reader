@@ -5,8 +5,9 @@ var fs = require('fs');
 
 
 var recordCount = 0;
+var featureCount = 0;
 var isFirst = true;
-var baseFilename = process.argv[2] || 'out_';
+var baseFilename = process.argv[3] || 'out';
 var currentFile = 0;
 var currentFd = null;
 var SPLIT_ON_COUNT = 500000;
@@ -44,7 +45,7 @@ function pad(num, size) {
 
 function main() {
     var parser = new nen1878reader.Nen1878Parser();
-    var reader = new nen1878reader.Nen1878StreamReader(parser, process.stdin);
+    var reader = new nen1878reader.Nen1878FileReader(parser, process.argv[2]);
 
     parser.on('record', onRecord);
     reader.on('end', onEnd);
@@ -53,6 +54,8 @@ function main() {
 }
 
 function onRecord(record) {
+    recordCount += 1;
+
     if (!record.lkiCode) {
         return;
     }
@@ -83,10 +86,10 @@ function onRecord(record) {
         var json = JSON.stringify(feature);
         fs.writeSync(currentFd, json);
 
+        featureCount += 1;
 
         // open new file if needed
-        recordCount += 1;
-        if (recordCount % SPLIT_ON_COUNT === 0) {
+        if (featureCount % SPLIT_ON_COUNT === 0) {
             closeFile(currentFd);
             isFirst = true;
             currentFd = null;
