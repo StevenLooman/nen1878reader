@@ -41,6 +41,16 @@ function pad(num, size) {
 }
 
 
+function xmlEscape(str) {
+    return str.toString()
+        .replace('&', '&amp;')
+        .replace('<', '&lt;')
+        .replace('>', '&gt;');
+        // XXX: TODO: ' -> &apos;
+        // XXX: TODO: " -> &quot;
+}
+
+
 function main() {
     var parser = new nen1878reader.Nen1878Parser();
     var reader = new nen1878reader.Nen1878FileReader(parser, process.argv[2]);
@@ -101,8 +111,8 @@ function onRecord(record) {
             if (key == 'datum') {
                 continue;
             }
-            // XXX: TODO: ignore certain attributes
-            value = feature.properties[key];
+
+            value = xmlEscape(feature.properties[key]);
             gml += '<' + key + '>' + value + '</' + key + '>';
         }
 
