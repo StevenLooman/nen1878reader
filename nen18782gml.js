@@ -104,7 +104,7 @@ function onRecord(record) {
 
         // write a gml:featureMember
         var gml = '<gml:featureMember>';
-        gml += '<record' + record.recordType + ' gml:id="gbkn.' + recordCount + '">';
+        gml += '<record' + record.recordType + ' gml:id="gbkn.' + baseFilename + '_' +recordCount + '">';
 
         // all attributes
         for (var key in feature.properties) {
