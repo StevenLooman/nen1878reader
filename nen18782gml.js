@@ -1,15 +1,29 @@
 #!/usr/bin/env node
 
+// Convert a NEN1878 file to a GML file
+//
+// Usage: nen18782gml.js [options] input_file base_output_file
+// Options:
+//   --split <count>    Split the output files on every <count> records
+//
+// Example: nen18782gml.js --split 2500 WEESP_N__7001.NEN weesp
+//   This will read the file WEESP_N__7001.NEN in the current directory
+//   and will create weesp_00.gml, weesp_01.gml, weesp_02.gml, weesp_03.gml,
+//   weesp_04.gml, each containing at most 2500 records
+
 var nen1878reader = require('./');
 var fs = require('fs');
+var miniminst = require('minimist');
 
+var args = miniminst(process.argv.slice(2));
+var inFilename = args['_'][0];
+var baseFilename = args['_'][1] || 'out';
+var split_on_count = args['split'];
 
 var recordCount = 0;
 var featureCount = 0;
-var baseFilename = process.argv[3] || 'out';
 var currentFile = 0;
 var currentFd = null;
-var SPLIT_ON_COUNT = 500000;
 
 
 function openFile(filename) {
@@ -53,7 +67,7 @@ function xmlEscape(str) {
 
 function main() {
     var parser = new nen1878reader.Nen1878Parser();
-    var reader = new nen1878reader.Nen1878FileReader(parser, process.argv[2]);
+    var reader = new nen1878reader.Nen1878FileReader(parser, inFilename);
 
     parser.on('record', onRecord);
     reader.on('end', onEnd);
@@ -104,7 +118,7 @@ function onRecord(record) {
 
         // write a gml:featureMember
         var gml = '<gml:featureMember>';
-        gml += '<record' + record.recordType + ' gml:id="gbkn.' + baseFilename + '_' +recordCount + '">';
+        gml += '<record' + record.recordType + ' gml:id="gbkn.' + baseFilename + '.' +recordCount + '">';
 
         // all attributes
         for (var key in feature.properties) {
@@ -132,7 +146,7 @@ function onRecord(record) {
         featureCount += 1;
 
         // open new file if needed
-        if (featureCount % SPLIT_ON_COUNT === 0) {
+        if (split_on_count && featureCount % split_on_count === 0) {
             closeFile(currentFd);
             currentFd = null;
         }

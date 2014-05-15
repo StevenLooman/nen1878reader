@@ -11,6 +11,7 @@
         }
     ],
     "dependencies": {
+        "minimist": "0.1.0"
     },
     "devDependencies": {
         "mocha": "1.13.0",
